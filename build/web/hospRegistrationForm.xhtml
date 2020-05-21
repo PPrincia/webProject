@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Hospital Registration Form</h1>
+        <h:messages for="message" />
+        <h:form>
+            <h:panelGrid>
+              
+                <h:outputLabel value="Name" />
+                <h:inputText id="nm" value="#{hospreg.hosp.name}" required="true"/>
+                <h:message for="nm"/>
+                <h:outputLabel value="Username"/>
+                <h:inputText id="usr" value="#{hospreg.hosp.username}" required="true"/>
+                <h:message for="usr"/>
+                <h:outputLabel value="Password"/>
+                <h:inputText id="ps" value="#{hospreg.hosp.password}" required="true"/>
+                <h:message for="ps"/>
+                
+                <h:outputLabel  value="Province">
+               
+                    <h:inputText id="lc" value="#{hospreg.loc.province}" required="true"/>
+                <h:message for="lc"/>
+              
+                </h:outputLabel>
+                
+                <h:outputLabel value="District">
+                
+                    <h:inputText id="ds" value="#{hospreg.loc.district}" required="true"/>
+                <h:message for="ds"/>
+                
+                </h:outputLabel>
+               
+                <h:outputLabel value="Sector">
+                    <h:inputText id="sc" value="#{hospreg.loc.sector}" required="true"/>
+                <h:message for="sc"/>
+          
+                </h:outputLabel>
+                <h:outputLabel value="Submit"/>
+                <h:commandButton value="#{hospreg.action}" action="#{hospreg.registerHospital()}"/>
+            </h:panelGrid>
+            
+        </h:form>
+    </h:body>
+</html>
+
