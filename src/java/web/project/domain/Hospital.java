@@ -8,6 +8,7 @@ package web.project.domain;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -24,6 +25,7 @@ public class Hospital {
     private String password;
 
     @ManyToOne
+    @JoinColumn(name="loc_Id", nullable=false)
     private Location location;
 
     

@@ -6,12 +6,15 @@
 package web.project.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import web.project.domain.Hospital;
 import web.project.domain.Location;
 import web.project.persistance.DaoClass;
+import web.project.persistance.LocationDao;
 
 /**
  *
@@ -21,15 +24,17 @@ import web.project.persistance.DaoClass;
 public class HospitalRegistration {
     
     private Hospital hosp = new Hospital();
-    private Location loc = new Location();
     private DaoClass dao = new DaoClass();
     private String action = "register";
-
+    private int locId;
+    private List<Location> locations=new ArrayList<>();
     
     public String registerHospital(){
         try {
+           Location loc=new Location();
+           loc.setLocId(locId);
+           hosp.setLocation(loc);
             dao.create(hosp);
-            dao.create(loc);
             FacesMessage msg = new FacesMessage("Thank you for registering " +hosp.getName() + "located at " +hosp.getLocation().getProvince());
             FacesContext.getCurrentInstance().addMessage(null, msg);
             return "loginForm";
@@ -74,10 +79,20 @@ public class HospitalRegistration {
         return action;
     }
 
-    public Location getLoc() {
-        return loc;
+    public List<Location> getLocations() {
+        return new LocationDao().getAllLoc();
     }
 
+    public int getLocId() {
+        return locId;
+    }
+
+    public void setLocId(int locId) {
+        this.locId = locId;
+    }
+    
+
+ 
    
     
 }

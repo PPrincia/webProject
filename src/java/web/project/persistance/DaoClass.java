@@ -5,9 +5,11 @@
  */
 package web.project.persistance;
 
+import web.project.domain.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 import web.project.domain.Hospital;
+import web.project.domain.Location;
 
 /**
  *
@@ -59,7 +61,7 @@ public class DaoClass <X>{
         Session s = NewHibernateUtil.getSessionFactory().openSession();
         return s.createCriteria(type).list();
     }
-    
+  
      /*public List<Hospital> findAll() {
         Session ss = NewHibernateUtil.getSession();
         List<Hospital> hpList = ss.createQuery("from Hospital a").list();

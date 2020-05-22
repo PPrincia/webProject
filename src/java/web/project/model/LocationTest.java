@@ -8,7 +8,7 @@ package web.project.model;
 import web.project.domain.Hospital;
 import web.project.domain.Location;
 import web.project.persistance.DaoClass;
-import web.project.persistance.NewHibernateUtil;
+import web.project.domain.NewHibernateUtil;
 
 /**
  *
